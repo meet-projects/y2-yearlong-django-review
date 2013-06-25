@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def some_text(request):
 	return HttpResponse("This is some text response!")
