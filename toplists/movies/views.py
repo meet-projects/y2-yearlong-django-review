@@ -4,11 +4,17 @@ from django.http import HttpResponse
 def movie_list(request):
     return HttpResponse("this is the list of all movies")
 
-def movie(request):
-    return HttpResponse("this is where you see one movie and all it's comments")
-
 def add_movie(request):
     return HttpResponse("adding movie")
 
-def add_comment(request):
-    return HttpResponse("adding comment")
+def movie(request, movie_id):
+    return HttpResponse("this is where you see movie number " + movie_id + " and all it's comments")
+
+def add_comment(request, movie_id):
+    return HttpResponse("adding comment to movie " + movie_id)
+
+def like(request, movie_id):
+    return HttpResponse("you liked movie " + movie_id)
+
+def dislike(request, movie_id):
+    return HttpResponse("you disliked movie " + movie_id)

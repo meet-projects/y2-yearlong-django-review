@@ -1,17 +1,14 @@
 from django.conf.urls import patterns, include, url
 
+from movies import views
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
-    # Examples:
-    # url(r'^$', 'recommendations.views.home', name='home'),
-    # url(r'^recommendations/', include('recommendations.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    # url(r'^admin/', include(admin.site.urls)),
+urlpatterns = patterns('', 
+    url(r'^movies$', 'views.movie_list'),
+    url(r'^movies/(?P<movie_id>\d+)', 'views.movie'),
+    url(r'^movies/(?P<movie_id>\d+)/addcomment', 'views.add_comment'),
+    url(r'^movies/(?P<movie_id>\d+)/like', 'views.like'),
+    url(r'^movies/(?P<movie_id>\d+)/dislike', 'views.dislike')
 )
