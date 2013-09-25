@@ -1,3 +1,10 @@
+{% extends 'movies/base.html' %}
+
+{% block headers %}
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/movies_list.css">
+{% endblock %}
+
+{% block content %}
 {% if movies_list %}
 	List of all movies: 
 	<ul>
@@ -15,3 +22,4 @@ Or add your own movie:<br>
 Title: <input type="text" name="movie_title"><br>
 <input type="submit" value="Add">
 </form>
+{% endblock %}
