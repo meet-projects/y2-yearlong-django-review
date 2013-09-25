@@ -1,0 +1,17 @@
+{% if movies_list %}
+	List of all movies: 
+	<ul>
+	{% for movie in movies_list %}
+		<li><a href="/movies/{{ movie.id }}/">{{ movie.title }}</a></li>
+	{% endfor %}
+	</ul>
+{% else %}
+	<p>There are no movies yet. </p>
+{% endif %}
+
+Or add your own movie:<br>
+<form action="movies/addmovie" method="post">
+{% csrf_token %}
+Title: <input type="text" name="movie_title"><br>
+<input type="submit" value="Add">
+</form>

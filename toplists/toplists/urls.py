@@ -6,9 +6,9 @@ from movies import views
 # admin.autodiscover()
 
 urlpatterns = patterns('', 
-    url(r'^movies$', 'views.movie_list'),
-    url(r'^movies/(?P<movie_id>\d+)', 'views.movie'),
-    url(r'^movies/(?P<movie_id>\d+)/addcomment', 'views.add_comment'),
-    url(r'^movies/(?P<movie_id>\d+)/like', 'views.like'),
-    url(r'^movies/(?P<movie_id>\d+)/dislike', 'views.dislike')
+    url(r'^movies$', views.movie_list),
+    url(r'^movies/home$', views.movie_list),
+    url(r'^movies/addmovie', views.add_movie),
+    url(r'^movies/(?P<movie_id>\d+)', views.movie),
+    url(r'^movies/(?P<movie_id>\d+)/addcomment', views.add_comment)
 )

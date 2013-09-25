@@ -1,4 +1,4 @@
-# Django settings for recommendations project.
+# Django settings for toplists project.
 
 from os.path import abspath, dirname, join
 SITE_ROOT = abspath(dirname(dirname(__file__)))
@@ -108,10 +108,10 @@ MIDDLEWARE_CLASSES = (
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'recommendations.urls'
+ROOT_URLCONF = 'toplists.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'recommendations.wsgi.application'
+WSGI_APPLICATION = 'toplists.wsgi.application'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
