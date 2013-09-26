@@ -16,6 +16,7 @@
 	<!-- taking each movie in the movies_list one at a time -->
 	{% for movie in movies_list %}
 		<!-- link to each movie and display it's title -->
+		<!-- the id number is the unique number given by Django to each movie -->
 		<li><a href="/movies/{{ movie.id }}/">{{ movie.title }}</a></li>
 	{% endfor %}
 	</ul>
