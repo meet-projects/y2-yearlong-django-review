@@ -3,6 +3,8 @@
 from os.path import abspath, dirname, join
 SITE_ROOT = abspath(dirname(dirname(__file__)))
 
+appname = 'movies'
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -64,7 +66,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = join(SITE_ROOT, 'movies/static')
+STATIC_ROOT = join(SITE_ROOT, appname, 'static')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -75,9 +77,9 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    ("css", join(SITE_ROOT, 'movies', 'static', 'css')),
-    ("js", join(SITE_ROOT, 'movies', 'static', 'js')),
-    ("images", join(SITE_ROOT, 'movies', 'static', 'images')),
+    ("css", join(SITE_ROOT, appname, 'static', 'css')),
+    ("js", join(SITE_ROOT, appname, 'static', 'js')),
+    ("images", join(SITE_ROOT, appname, 'static', 'images')),
 )
 
 # List of finder classes that know how to find static files in
@@ -121,7 +123,7 @@ TEMPLATE_DIRS = (
 )
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
+    # 'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
