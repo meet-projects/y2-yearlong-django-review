@@ -1,0 +1,38 @@
+<!-- we are using a base template here -->
+{% extends 'movies/base.html' %}
+
+<!-- anything inside the block here are specific to this page -->
+{% block headers %}
+	<!-- importing the movies_list.css stylesheet using the STATIC_URL tag -->
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/movies_list.css">
+{% endblock %}
+
+{% block content %}
+
+<a href="/movies">Back to the entire movie list</a>
+<!-- checking if the variable movie is not empty -->
+{% if movie %}
+	<h2> Title: {{ movie.title }} </h2>
+
+	<!-- a form for adding a movie -->
+	Or add a comment to the movie:<br>
+	<form action="addcomment" method="post">
+	{% csrf_token %}
+	Text: <input type="text" name="comment_text"><br>
+	<input type="submit" value="Add">
+	</form>
+
+	{% if comment_list %}
+		Comments: <br>
+		{% for comment in comment_list %}
+			<p>{{ comment.text }}</p>
+		{% endfor %}
+	{% else %}
+		<p> There are no comments. </p>
+	{% endif %}
+
+{% else %}
+	<p>This is not a movie </p>
+{% endif %}
+
+{% endblock %}

@@ -20,7 +20,16 @@ def add_movie(request):
     return HttpResponseRedirect('/movies')
 
 def movie(request, movie_id):
-    return HttpResponse("this is where you see movie number " + movie_id + " and all it's comments")
+    # find the single movie that corresponds to primary key (id)
+    # equal to the movie_id from the URL
+    # because the .filter() method returns a list 
+    one_movie = Movie.objects.filter(pk = movie_id)[0]
+    list_of_comments = Comment.objects.filter(movie=one_movie)
+    context = {'movie': one_movie, 'comment_list': list_of_comments}
+    return render(request, 'movies/movie.html', context)
 
 def add_comment(request, movie_id):
-    return HttpResponse("adding comment to movie " + movie_id)
+    movie_to_add_comment_to = Movie.objects.filter(pk = movie_id)[0]
+    new_comment = Comment(text=request.POST['comment_text'], movie=movie_to_add_comment_to)
+    new_comment.save()
+    return HttpResponseRedirect('/movies/' + movie_id + '/')
